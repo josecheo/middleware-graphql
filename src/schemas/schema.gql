@@ -1,0 +1,46 @@
+type Appointment {
+  id: ID
+  start: String
+  end: String
+  patient: Patient
+  doctor: Doctor
+  serviceType: String
+}
+type Patient {
+  id: String
+  birthDate: String
+  gender: String
+  name: String
+}
+
+type Doctor {
+  id: String
+  name: String
+  gender: String
+  specialty: String
+}
+
+type Participant {
+  actor: Actor
+  status: String
+}
+
+type Actor {
+  reference: String
+}
+
+type ServiceType {
+  coding: [Coding]
+}
+
+type Coding {
+  code: String
+  display: String
+  system: String
+}
+
+type Query {
+  getAppointmentByDate(date: String): [Appointment!]!
+  getPatientByName(name: String): [Patient!]!
+  getPractitionerByName(name: String): [Doctor!]!
+}

@@ -1,0 +1,38 @@
+query getAppointmentByDate($date: String) {
+  getAppointmentByDate(date: $date) {
+    id
+    start
+    end
+    patient {
+      id
+      birthDate
+      gender
+      name
+    }
+    doctor {
+      id
+      name
+      gender
+      specialty
+    }
+    serviceType
+  }
+}
+
+query GetPatientByName($name: String) {
+  getPatientByName(name: $name) {
+    id
+    birthDate
+    gender
+    name
+  }
+}
+
+query GetPractitionerByName($name: String) {
+  getPractitionerByName(name: $name) {
+    id
+    name
+    gender
+    specialty
+  }
+}
