@@ -43,4 +43,5 @@ type Query {
   getAppointmentByDate(date: String): [Appointment!]!
   getPatientByName(name: String): [Patient!]!
   getPractitionerByName(name: String): [Doctor!]!
+  getAppointmentByDoctorDate(doctorId: String, date: String): [Appointment!]!
 }

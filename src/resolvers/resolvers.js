@@ -32,7 +32,21 @@ const resolvers = {
         console.error('Error al obtener los datos:', error);
         throw error; // Lanza el error para que Apollo Server lo maneje
       }
-    }
+    },
+    getAppointmentByDoctorDate: async (_, { doctorId, date  }) => {
+      try {
+        const [getAllDoctor, getAllPatient] = await Promise.all([
+          fetchResourceData('Practitioner', {}, [], []),
+          fetchResourceData('Patient', {}, [], [])
+        ]);
+        const getAppointment = await fetchResourceData('Appointment', { date: date }, getAllDoctor, getAllPatient);
+        const filterByDoctorId = getAppointment.filter(item => item.doctor.id === doctorId);       
+        return filterByDoctorId;
+      } catch (error) {
+        console.error('Error al obtener los datos:', error);
+        throw error; // Lanza el error para que Apollo Server lo maneje
+      }
+    },
   }
 };
 
