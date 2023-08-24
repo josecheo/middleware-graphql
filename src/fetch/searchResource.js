@@ -1,6 +1,7 @@
 const axios = require('axios');
+require('dotenv').config();
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb3NlNDU2bGh5b0BnbWFpbC5jb20iLCJpYXQiOjE2OTEyNjg1MTQ3MzMsImV4cCI6MTY5MTI2OTExOTUzM30.QUBRQX1cehzJywR_1ks0ak1LX5IuhY71hwdpGinpkNY'; // Reemplaza con tu token Bearer real
+const token = process.env.TOKEN;
 const headers = {
     Authorization: `Bearer ${token}`
 };
