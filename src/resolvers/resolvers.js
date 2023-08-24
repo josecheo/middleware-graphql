@@ -18,6 +18,7 @@ const resolvers = {
     getPatientByName: async (_, { name }) => {
       try {
         const allPatient = fetchResourceData('Patient', name ? { "family:contains": name } : {}, [], [])
+        console.log("allPatient",allPatient)
         return allPatient;
       } catch (error) {
         console.error('Error al obtener los datos:', error);

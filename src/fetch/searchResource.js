@@ -11,20 +11,13 @@ const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric
 const buildFullName = (nameObject) => {
     const fullName = [];
     if (nameObject) {
-        if (nameObject.prefix && nameObject.prefix.length > 0) {
-            fullName.push(nameObject.prefix[0]);
-        }
-
         if (nameObject.given && nameObject.given.length > 0) {
             fullName.push(nameObject.given.join(' '));
         }
-
         if (nameObject.family) {
             fullName.push(nameObject.family);
         }
     }
-
-
     return fullName.join(' ');
 };
 
